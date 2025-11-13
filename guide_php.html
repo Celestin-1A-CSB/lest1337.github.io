@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours PHP - Célestin DUVERNEY</title>
+    <link rel="stylesheet" href="guide_style.css" media="screen">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+
+    <div class="main">
+      <div class="main_inside">
+
+    <header>
+        <h1>COURS PHP</h1>
+        <p><a href="#INTRODUCTION">INTRODUCTION</a> / <a href="#CHEAT">CHEAT SHEET</a> / <a href="#CONSEILS">CONSEILS</a></p>
+    </header>
+
+    <hr>
+
+    <h2 id="INTRODUCTION">INTRODUCTION</h2>
+
+    <p>
+        PHP (Hypertext Preprocessor) est un langage de script côté serveur principalement utilisé pour développer des applications web dynamiques. Il s'exécute sur le serveur, génère du HTML et peut interagir avec des bases de données, des sessions et des fichiers. PHP peut être écrit en code procédural ou orienté objet et fonctionne bien avec des serveurs web comme Apache ou Nginx.
+    </p>
+    <p>
+        Ce guide rassemble les notions de base et les éléments les plus utilisés pour débuter et structurer correctement une application PHP.
+    </p>
+    <hr />
+
+    <h2 id="CHEAT">CHEAT SHEET</h2>
+
+    <p>
+        Le tableau ci-dessous liste les constructions, fonctions et concepts fondamentaux en PHP.
+    </p>
+
+    <div class="HTMLTABLE">
+    <table>
+        <tr>
+            <th>ÉLÉMENT</th>
+            <th>DESCRIPTION</th>
+        </tr>
+        <tr>
+            <td>&lt;?php ... ?&gt;</td>
+            <td>Balises d'ouverture et de fermeture du code PHP.</td>
+        </tr>
+        <tr>
+            <td><code>echo</code> / <code>print</code></td>
+            <td>Affiche du texte ou des variables vers la sortie HTTP.</td>
+        </tr>
+        <tr>
+            <td>Variables <code>$var</code></td>
+            <td>Stockent des valeurs. PHP est faiblement typé, variables préfixées par $.</td>
+        </tr>
+        <tr>
+            <td>Types</td>
+            <td>int, float, string, bool, array, object, null, resource.</td>
+        </tr>
+        <tr>
+            <td>Constantes <code>define()</code> / <code>const</code></td>
+            <td>Valeurs fixes accessibles globalement.</td>
+        </tr>
+        <tr>
+            <td>Tableaux indexés</td>
+            <td>Listes ordonnées, accès par index numérique.</td>
+        </tr>
+        <tr>
+            <td>Tableaux associatifs</td>
+            <td>Clé -> valeur, très utilisés pour données structurées.</td>
+        </tr>
+        <tr>
+            <td>Superglobales</td>
+            <td><code>$_GET</code>, <code>$_POST</code>, <code>$_REQUEST</code>, <code>$_SESSION</code>, <code>$_COOKIE</code>, <code>$_SERVER</code>, <code>$_FILES</code>.</td>
+        </tr>
+        <tr>
+            <td>Structures conditionnelles</td>
+            <td><code>if / else / elseif / switch</code>.</td>
+        </tr>
+        <tr>
+            <td>Boucles</td>
+            <td><code>for</code>, <code>foreach</code>, <code>while</code>, <code>do...while</code>.</td>
+        </tr>
+        <tr>
+            <td>Fonctions</td>
+            <td>Définies avec <code>function nom(...){}</code>. Retour avec <code>return</code>.</td>
+        </tr>
+        <tr>
+            <td>Inclure des fichiers</td>
+            <td><code>include</code>, <code>require</code>, <code>include_once</code>, <code>require_once</code>.</td>
+        </tr>
+        <tr>
+            <td>Programmation orientée objet</td>
+            <td><code>class</code>, <code>public/private/protected</code>, <code>static</code>, constructeurs <code>__construct</code>, interfaces, traits, namespaces.</td>
+        </tr>
+        <tr>
+            <td>Namespaces</td>
+            <td>Organisation du code et évitement des collisions de noms.</td>
+        </tr>
+        <tr>
+            <td>Exceptions</td>
+            <td>Gestion des erreurs avec <code>try / catch / finally</code> et <code>throw</code>.</td>
+        </tr>
+        <tr>
+            <td>Accès fichier</td>
+            <td><code>fopen</code>, <code>fread</code>, <code>fwrite</code>, <code>file_get_contents</code>, <code>file_put_contents</code>.</td>
+        </tr>
+        <tr>
+            <td>Envoi de headers</td>
+            <td><code>header()</code> pour redirections, types MIME, contrôle du cache.</td>
+        </tr>
+        <tr>
+            <td>Sessions</td>
+            <td>Gestion d'états utilisateurs via <code>session_start()</code>, <code>$_SESSION</code>.</td>
+        </tr>
+        <tr>
+            <td>Cookies</td>
+            <td><code>setcookie()</code> pour stocker des données côté client.</td>
+        </tr>
+        <tr>
+            <td>Connexion BD</td>
+            <td>PDO (recommandé) ou mysqli. Utiliser les requêtes préparées pour éviter les injections SQL.</td>
+        </tr>
+        <tr>
+            <td>PDO - requêtes préparées</td>
+            <td><code>$stmt = $pdo->prepare(...); $stmt->execute([...]);</code> protège contre les injections SQL.</td>
+        </tr>
+        <tr>
+            <td>Fonctions utiles</td>
+            <td><code>isset()</code>, <code>empty()</code>, <code>trim()</code>, <code>strlen()</code>, <code>explode()</code>, <code>implode()</code>, <code>json_encode()</code>, <code>json_decode()</code>.</td>
+        </tr>
+        <tr>
+            <td>Manipulation de dates</td>
+            <td><code>DateTime</code> et fonctions <code>date()</code>, <code>strtotime()</code>.</td>
+        </tr>
+        <tr>
+            <td>Configuration</td>
+            <td><code>php.ini</code> contrôle erreurs, display_errors, memory_limit, upload_max_filesize, etc.</td>
+        </tr>
+        <tr>
+            <td>Erreurs et logs</td>
+            <td><code>error_reporting()</code>, <code>ini_set()</code>, et journalisation côté serveur.</td>
+        </tr>
+        <tr>
+            <td>Composer</td>
+            <td>Gestionnaire de paquets PHP pour installer et autoloader des bibliothèques.</td>
+        </tr>
+        <tr>
+            <td>Bonnes pratiques</td>
+            <td>Séparer logique et présentation, valider et assainir les entrées, utiliser HTTPS, requêtes préparées, password_hash pour mots de passe.</td>
+        </tr>
+    </table>
+    </div>
+
+    <hr />
+
+    <h2 id="EXEMPLES">EXEMPLES RAPIDES</h2>
+
+    <p>Exemples de code utiles à garder en mémoire.</p>
+
+    <h3>1) Hello world</h3>
+    <pre><code>&lt;?php
+echo 'Bonjour le monde';
+?&gt;
+</code></pre>
+
+    <h3>2) Récupérer un paramètre GET</h3>
+    <pre><code>&lt;?php
+$name = isset($_GET['name']) ? htmlspecialchars($_GET['name']) : 'inconnu';
+echo "Bonjour " . $name;
+?&gt;
+</code></pre>
+
+    <h3>3) Requête préparée PDO</h3>
+    <pre><code>&lt;?php
+$pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'user', 'pass', [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+]);
+
+$stmt = $pdo->prepare('SELECT * FROM users WHERE email = :email');
+$stmt->execute(['email' => $email]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+?&gt;
+</code></pre>
+
+    <h3>4) Upload de fichier (sécurisé basique)</h3>
+    <pre><code>&lt;?php
+if (!empty($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
+    $tmp = $_FILES['avatar']['tmp_name'];
+    $name = basename($_FILES['avatar']['name']);
+    $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+    $allowed = ['jpg','png','gif'];
+    if (in_array($ext, $allowed)) {
+        $target = __DIR__ . '/uploads/' . uniqid('av_', true) . '.' . $ext;
+        move_uploaded_file($tmp, $target);
+        echo "Upload réussi";
+    } else {
+        echo "Type de fichier non autorisé";
+    }
+}
+?&gt;
+</code></pre>
+
+    <hr />
+
+    <h2 id="CONSEILS">CONSEILS</h2>
+
+    <p>
+        Quelques bonnes pratiques et recommandations pour développer en PHP.
+    </p>
+
+    <ul>
+        <li>
+            <p>
+                Toujours valider et assainir les entrées utilisateur. Utiliser <code>filter_var()</code>, <code>htmlspecialchars()</code> et valider côté serveur.
+            </p>
+        </li>
+        <li>
+            <p>
+                Utiliser PDO avec requêtes préparées pour accéder à la base de données afin d'éviter les injections SQL.
+            </p>
+        </li>
+        <li>
+            <p>
+                Ne jamais stocker de mots de passe en clair. Utiliser <code>password_hash()</code> et <code>password_verify()</code>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Activer les erreurs en développement (<code>error_reporting(E_ALL)</code> et <code>ini_set('display_errors', 1)</code>), mais les désactiver en production et loguer les erreurs.
+            </p>
+        </li>
+        <li>
+            <p>
+                Séparer la logique métier de la présentation. Utiliser un moteur de templates ou un framework MVC si le projet grandit.
+            </p>
+        </li>
+        <li>
+            <p>
+                Utiliser Composer pour gérer les dépendances et l'autoloading PSR-4 pour une organisation claire du code.
+            </p>
+        </li>
+        <li>
+            <p>
+                Protéger les formulaires contre les attaques CSRF en générant et vérifiant des tokens dans <code>$_SESSION</code>.
+            </p>
+        </li>
+        <li>
+            <p>
+                Garder le serveur et PHP à jour. Suivre les recommandations de sécurité et les mises à jour de versions.
+            </p>
+        </li>
+        <li>
+            <p>
+                Documenter le code et écrire des tests unitaires lorsque possible. Les tests facilitent les modifications futures.
+            </p>
+        </li>
+        <li>
+            <p>
+                Lire et suivre les standards PSR pour améliorer la lisibilité et l'interopérabilité du code.
+            </p>
+        </li>
+    </ul>
+
+    </div>
+    </div> <!-- main and main_inside -->
+</body>
+</html>

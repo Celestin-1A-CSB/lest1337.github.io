@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.categories {
+
+    display: flex;
+    gap: 16px;
+
+}
+
+.card {
+    display: inline-block;
+    padding: 2%;
+
+    width: 25%;
+    margin: 1%;
+
+    border: 1px solid rgb(219, 219, 219);
+    border-bottom: 4px solid rgb(219, 219, 219);
+
+    border-radius: 12px;
+}
+
+footer {
+    font-size: small;
+    color: rgb(147, 147, 147);
+}
